@@ -1,15 +1,16 @@
-# Your code here
-
-
-
 def finder(files, queries):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
-
+    result = []
+    zed = {}
+    for file in files:
+        xfiles = file.split("/")
+        yes = xfiles[-1]
+        if yes not in zed:
+            zed[yes] = []
+        zed[yes].append(file)
+    for query in queries:
+        if query in zed:
+            result.extend(zed[query])
     return result
-
 
 if __name__ == "__main__":
     files = [
